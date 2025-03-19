@@ -1,8 +1,9 @@
 ﻿using SimpleTravelManagement.Domain.ValueObjects;
+using SimpleTravelManagement.Shared.Abstractions.Domain;
 
 namespace SimpleTravelManagement.Domain.Entities;
 
-public class TravelerCheckList
+public class TravelerCheckList : AggregateRoot<TravelerCheckListId>
 {
     public TravelerCheckListId Id { get; private set; }
     private TravelerCheckListName _name;
@@ -16,7 +17,7 @@ public class TravelerCheckList
     }
 
     internal TravelerCheckList(TravelerCheckListId id,
-        TravelerCheckListName name ,
+        TravelerCheckListName name , 
         Destination destination)
     {
         Id = id;

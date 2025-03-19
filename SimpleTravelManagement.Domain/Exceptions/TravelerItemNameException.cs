@@ -1,4 +1,6 @@
-﻿namespace SimpleTravelManagement.Shared.Abstractions.Exceptions;
+﻿using SimpleTravelManagement.Shared.Abstractions.Exceptions;
+
+namespace SimpleTravelManagement.Domain.Exceptions;
 
 public class TravelerItemNameException : TravelerCheckListException
 

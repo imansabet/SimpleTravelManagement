@@ -1,4 +1,5 @@
-﻿using SimpleTravelManagement.Shared.Abstractions.Exceptions;
+﻿using SimpleTravelManagement.Domain.Exceptions;
+using SimpleTravelManagement.Shared.Abstractions.Exceptions;
 
 namespace SimpleTravelManagement.Domain.ValueObjects;
 

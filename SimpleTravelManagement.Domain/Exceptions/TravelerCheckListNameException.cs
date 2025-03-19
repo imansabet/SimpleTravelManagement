@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SimpleTravelManagement.Shared.Abstractions.Exceptions;
+namespace SimpleTravelManagement.Domain.Exceptions;
 
 public class TravelerCheckListNameException : Exception
 {
