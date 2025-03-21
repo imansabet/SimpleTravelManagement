@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleTravelManagement.Shar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleTravelManagement.Application", "SimpleTravelManagement.Application\SimpleTravelManagement.Application.csproj", "{280394D2-0BAF-4400-B92D-0640D51F2079}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleTravelManagement.API", "SimpleTravelManagement.API\SimpleTravelManagement.API.csproj", "{ABC33570-5FD4-4E80-890E-8586ECDBD60C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{280394D2-0BAF-4400-B92D-0640D51F2079}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{280394D2-0BAF-4400-B92D-0640D51F2079}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{280394D2-0BAF-4400-B92D-0640D51F2079}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABC33570-5FD4-4E80-890E-8586ECDBD60C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABC33570-5FD4-4E80-890E-8586ECDBD60C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABC33570-5FD4-4E80-890E-8586ECDBD60C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABC33570-5FD4-4E80-890E-8586ECDBD60C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
