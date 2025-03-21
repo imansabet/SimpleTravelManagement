@@ -9,9 +9,11 @@
   <ItemGroup>
     <Folder Include="Commands\" />
     <Folder Include="Exceptions\" />
-    <Folder Include="DTO\" />
-    <Folder Include="Services\" />
     <Folder Include="Queries\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SimpleTravelManagement.Domain\SimpleTravelManagement.Domain.csproj" />
   </ItemGroup>
 
 </Project>
