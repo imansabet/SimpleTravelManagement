@@ -1,4 +1,5 @@
-﻿using SimpleTravelManagement.Domain.Exceptions;
+﻿using SimpleTravelManagement.Domain.Events;
+using SimpleTravelManagement.Domain.Exceptions;
 using SimpleTravelManagement.Domain.ValueObjects;
 using SimpleTravelManagement.Shared.Abstractions.Domain;
 
@@ -43,6 +44,8 @@ public class TravelerCheckList : AggregateRoot<TravelerCheckListId>
             throw new TravelerItemAlreadyExistsException(_name, item.Name);
         }
         _items.AddLast(item);
+        AddEvent(new TravelerItemAdded(this, item));
+    
     }
 
     public void AddItems(IEnumerable<TravelerItem> items)
@@ -59,6 +62,7 @@ public class TravelerCheckList : AggregateRoot<TravelerCheckListId>
         var TravelerItem = item with { IsTaken = true };
 
         _items.Find(item).Value = TravelerItem;
+        AddEvent(new TravelerItemTaken(this, item));
     }
 
     private TravelerItem GetItem(string itemName)
@@ -74,6 +78,8 @@ public class TravelerCheckList : AggregateRoot<TravelerCheckListId>
     {
         var item = GetItem(itemName);
         _items.Remove(item);
+        AddEvent(new TravelerItemRemoved(this, item));
+
     }
 
 
