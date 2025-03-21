@@ -6,8 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\SimpleTravelManagement.Domain\SimpleTravelManagement.Domain.csproj" />
-  </ItemGroup>
-
 </Project>

@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SimpleTravelManagement.Domain\SimpleTravelManagement.Domain.csproj" />
+    <ProjectReference Include="..\SimpleTravelManagement.Application\SimpleTravelManagement.Application.csproj" />
   </ItemGroup>
 
 </Project>
