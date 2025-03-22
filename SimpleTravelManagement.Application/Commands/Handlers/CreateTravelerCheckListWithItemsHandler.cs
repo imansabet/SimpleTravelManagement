@@ -11,18 +11,28 @@ internal sealed class CreateTravelerCheckListWithItemsHandler : ICommandHandler<
 {
     private readonly ITravelerCheckListRepository _repository;
     private readonly ITravelerCheckListFactory _factory;
+    private readonly ITravelerCheckListReadService _readService;
     private readonly IWeatherService _weatherService;
 
     public CreateTravelerCheckListWithItemsHandler
-        (ITravelerCheckListRepository repository , ITravelerCheckListFactory factory , IWeatherService weatherService)
+        (ITravelerCheckListRepository repository
+        , ITravelerCheckListFactory factory 
+        ,ITravelerCheckListReadService readService
+        , IWeatherService weatherService)
     {
         _repository = repository;
        _factory = factory;
-       _weatherService = weatherService;
+        _readService = readService;
+        _weatherService = weatherService;
     }
     public async Task HandleAsync(CreateTravelerCheckListWithItems command)
     {
          var (id , name , days , gender , DestinationWriteModel) = command;
+
+        if(await _readService.ExistsByNameAsync(name)) 
+        {
+            throw new TravelerCheckListAlreadyExistsException(name);
+        }
 
         var destination = new Destination(DestinationWriteModel.City, DestinationWriteModel.Country);
         var weather = await _weatherService.GetWeatherAsync(destination);

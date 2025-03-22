@@ -1,21 +1,25 @@
-﻿using SimpleTravelManagement.Application.DTO;
+﻿using Microsoft.EntityFrameworkCore;
+using SimpleTravelManagement.Application.DTO;
 using SimpleTravelManagement.Domain.Repositories;
+using SimpleTravelManagement.Infrastructure.EF.Context;
+using SimpleTravelManagement.Infrastructure.EF.Models;
+using SimpleTravelManagement.Infrastructure.EF.Queries;
 using SimpleTravelManagement.Shared.Abstractions.Queries;
 
 namespace SimpleTravelManagement.Application.Queries.Handlers;
 
-public class GetTravelerCheckListHandler : IQueryHandler<GetTravelerCheckList, TravelerCheckListDto>
+internal sealed class GetTravelerCheckListHandler : IQueryHandler<GetTravelerCheckList, TravelerCheckListDto>
 {
-    private readonly ITravelerCheckListRepository _repository;
+    private readonly DbSet<TravelerCheckListReadModel> _TravelerCheckLists;
 
-    public GetTravelerCheckListHandler(ITravelerCheckListRepository repository)
-    {
-        _repository = repository;
-    }
-    public async Task<TravelerCheckListDto> HandleAsync(GetTravelerCheckList query)
-    {
-        var travelerCheckList = await _repository.GetAsync(query.Id);
+    public GetTravelerCheckListHandler(ReadDbContext context)
+        => _TravelerCheckLists = context.TravelerCheckList;
 
-        return null;
-    }
+    public Task<TravelerCheckListDto> HandleAsync(GetTravelerCheckList query)
+        => _TravelerCheckLists
+            .Include(pl => pl.Items)
+            .Where(pl => pl.Id == query.Id)
+            .Select(pl => pl.AsDto())
+            .AsNoTracking()
+            .SingleOrDefaultAsync();
 }
