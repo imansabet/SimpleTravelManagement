@@ -1,6 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+﻿
+
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SimpleTravelManagement.Domain.Entities;
 using SimpleTravelManagement.Domain.ValueObjects;
 
